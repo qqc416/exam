@@ -68,4 +68,47 @@ class ExamSystem:
     @staticmethod
     def check_id(student_id):#检验学号是否正确，为数字
         return student_id.isdigit()
+# 编写主程序
+def main():
+    system = ExamSystem("人工智能编程语言学生名单.txt")#读取考试名单
 
+    while True:#创建考试系统
+        print("\n===== 学生信息与考场管理系统 =====")
+        print("1. 查找学生")
+        print("2. 随机点名")
+        print("3. 生成考场安排表")
+        print("4. 生成准考证")
+        print("0. 退出")
+        choice = input("请选择功能：")#用户选择功能
+
+        if choice == "1":#查找学生
+            sid = input("输入学号：")
+            s = system.find_student(sid)
+            print(s if s else "学号不存在")#打印结果
+
+        elif choice == "2":3随机点名
+            try:
+                n = int(input("点名人数："))
+                res = system.random_call(n)
+                if res:
+                    for s in res:
+                        print(s.name)
+                else:
+                    print("人数不合法")
+            except ValueError:
+                print("请输入数字！")
+
+        elif choice == "3":#生成考试表
+            shuffled = system.generate_exam_list()#调用函数
+            print("考场安排表已生成！")
+
+        elif choice == "4":#生成准考证
+            shuffled = system.generate_exam_list()
+            system.generate_tickets(shuffled)#调用函数，打印结果
+            print("准考证已生成！")
+
+        elif choice == "0":
+            break
+
+if __name__ == "__main__":
+    main()#创建程序入口
