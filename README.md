@@ -94,9 +94,9 @@ AI 生成的问题/缺陷：
  
 4. 人工代码审查（Code Review）
  
-python
   
 4.代码解释
+
 class Student:
     # 初始化学生属性：学号、姓名、考场、座位号
     def __init__(self, stu_id, name, room, seat):
