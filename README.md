@@ -139,17 +139,31 @@ class ExamSystem:
         try:
 
             # 尝试打开文件
+            
             with open(filepath, "r", encoding="utf-8") as f:
+            
                 for line in f:
+                
                     data = line.strip().split(",")
+                    
                     # 转换学号为整数，可能触发ValueError
+                    
                     stu_id = int(data[0])
+                    
                     student = Student(stu_id, data[1], data[2], data[3])
+                    
                     students.append(student)
+                    
         # 捕获文件不存在异常
+        
         except FileNotFoundError:
+        
             print("错误：学生信息文件不存在！")
+            
         # 捕获学号非数字异常
+        
         except ValueError:
+        
             print("错误：文件中学号格式错误，必须为数字！")
+            
         return students
