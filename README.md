@@ -98,28 +98,46 @@ AI 生成的问题/缺陷：
 4.代码解释
 
 class Student:
+
     # 初始化学生属性：学号、姓名、考场、座位号
+    
     def __init__(self, stu_id, name, room, seat):
+    
         self.stu_id = stu_id  # 存储学号
+        
         self.name = name      # 存储姓名
+        
         self.room = room      # 存储考场
+        
         self.seat = seat      # 存储座位号
 
-    # 友好打印学生信息
+    # 输出学生信息
+    
     def __str__(self):
+    
         return f"学号：{self.stu_id}，姓名：{self.name}，考场：{self.room}，座位：{self.seat}"
 
 class ExamSystem:
+
     # 静态方法：拼接文件路径（满足静态方法要求）
+    
     @staticmethod
+    
     def join_path(folder, filename):
+    
         # 使用os.path.join保证跨系统路径正确
+        
         return os.path.join(folder, filename)
+        
 
     # 从文件加载学生信息
+    
     def load_students(self, filepath):
+    
         students = []
+        
         try:
+
             # 尝试打开文件
             with open(filepath, "r", encoding="utf-8") as f:
                 for line in f:
