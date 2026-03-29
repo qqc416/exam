@@ -96,7 +96,7 @@ AI 生成的问题/缺陷：
  
 python
   
-# AI生成的核心逻辑代码 + 人工逐行注释
+4.代码解释
 class Student:
     # 初始化学生属性：学号、姓名、考场、座位号
     def __init__(self, stu_id, name, room, seat):
